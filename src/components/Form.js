@@ -1,19 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-let isTouched = false;
 
 const FormControl = (props) => {
   const navigate = useNavigate();
   const [userId, setUserId] = useState(undefined);
   const [error, setError] = useState(false);
-
-  useEffect(() => {
-    if (userId >= 1 && isTouched) {
-      setError(false);
-    } else if (userId < 1 && isTouched) {
-      setError(true);
-    }
-  }, [userId]);
 
   const nameChangeHandler = (event) => {
     setUserId(event.target.value);

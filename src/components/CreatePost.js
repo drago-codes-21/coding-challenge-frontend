@@ -14,17 +14,6 @@ const CreatePost = (props) => {
     body: "",
   });
 
-  const handleRedirect = () => {
-    let display = true;
-    if (post.title !== "" || post.body !== "") {
-      display = window.confirm(
-        "Are you sure?\nYour changes will not be saved."
-      );
-    }
-    if (display) {
-      navigate("/");
-    }
-  };
   const handlePostSubmit = (e) => {
     console.log("Post", e);
     const submitNewPost = () => {
@@ -58,7 +47,17 @@ const CreatePost = (props) => {
 
     setPost({ title: "", body: "" });
   };
-
+  const handleRedirect = () => {
+    let display = true;
+    if (post.title !== "" || post.body !== "") {
+      display = window.confirm(
+        "Are you sure?\nYour changes will not be saved."
+      );
+    }
+    if (display) {
+      navigate("/");
+    }
+  };
   return (
     <Form
       onSubmit={() => {
